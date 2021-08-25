@@ -1,0 +1,26 @@
+{
+    "nombreApp" : "Tramipet Componentes",
+    "rutas" : [
+        {
+            "ruta" : "rendir_febrero",
+            "icon" : "accessibility_new",
+            "texto": "Rendir materias Febrero"
+        },
+        {
+            "ruta" : "rendir_libre",
+            "icon" : "accessibility",
+            "texto": "Rendir materias Libre"
+        },
+        {
+            "ruta" : "cert_alumno_regular",
+            "icon" : "folder_open",
+            "texto": "Certificado alumno regular"
+        },
+        {
+            "ruta" : "cert_alumno_retiro",
+            "icon" : "input",
+            "texto": "Certificado alumno retiro"
+        }
+
+    ]
+}

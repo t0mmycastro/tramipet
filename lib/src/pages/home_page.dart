@@ -10,6 +10,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('TramiPET v1'),
+        automaticallyImplyLeading: false,
       ),
       body: _lista(),
     );

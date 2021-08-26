@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:componentes/src/pages/home_page.dart';
+import 'package:tramipet/src/pages/home_page.dart';
 
 class PantallaFinalizado extends StatelessWidget {
   @override

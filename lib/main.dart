@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'package:componentes/src/pages/home_page.dart';
-import 'package:componentes/src/pages/rendirfebrero_page.dart';
-import 'package:componentes/src/pages/rendirlibre_page.dart';
-import 'package:componentes/src/pages/certalumnoregular_page.dart';
-import 'package:componentes/src/pages/certalumnoretiro_page.dart';
+import 'package:tramipet/src/pages/home_page.dart';
+import 'package:tramipet/src/pages/rendirfebrero_page.dart';
+import 'package:tramipet/src/pages/rendirlibre_page.dart';
+import 'package:tramipet/src/pages/certalumnoregular_page.dart';
+import 'package:tramipet/src/pages/certalumnoretiro_page.dart';
 
 void main() => runApp(MyApp());
 

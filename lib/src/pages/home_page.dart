@@ -1,8 +1,8 @@
-import 'package:componentes/src/pages/rendirfebrero_page.dart';
+import 'package:tramipet/src/pages/rendirfebrero_page.dart';
 import 'package:flutter/material.dart';
 
-import 'package:componentes/src/providers/menu_provider.dart';
-import 'package:componentes/src/utils/icono_string_util.dart';
+import 'package:tramipet/src/providers/menu_provider.dart';
+import 'package:tramipet/src/utils/icono_string_util.dart';
 
 class HomePage extends StatelessWidget {
   @override

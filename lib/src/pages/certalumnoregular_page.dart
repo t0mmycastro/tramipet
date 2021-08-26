@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:componentes/src/pages/pantalla_finalizado_certificados.dart';
+import 'package:tramipet/src/pages/pantalla_finalizado_certificados.dart';
 
 class CertAlumnoRegularPage extends StatefulWidget {
   @override

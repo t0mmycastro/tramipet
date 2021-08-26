@@ -1,4 +1,4 @@
-import 'package:componentes/src/pages/pantalla_finalizado.dart';
+import 'package:tramipet/src/pages/pantalla_finalizado.dart';
 import 'package:flutter/material.dart';
 
 class RendirFebreroPage extends StatefulWidget {

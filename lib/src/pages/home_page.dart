@@ -1,4 +1,3 @@
-import 'package:tramipet/src/pages/rendirfebrero_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:tramipet/src/providers/menu_provider.dart';
@@ -9,8 +8,40 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('TramiPET v1'),
-        automaticallyImplyLeading: false,
+        title: Text('TramiPET v1.1'),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.cyan[200],
+              ),
+              child: Column(
+                children: [
+                  //        Expanded(child:
+                  //             Image.asset('images/logos.png'),      { Para poner un logo }
+                  //            ),
+                  Text('Menu de informacion'),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text('Perfil del alumno'),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text('Solicitudes pedidas'),
+              onTap: () {},
+            ),
+          ],
+        ),
       ),
       body: _lista(),
     );

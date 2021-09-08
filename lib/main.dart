@@ -6,6 +6,7 @@ import 'package:tramipet/src/pages/rendirfebrero_page.dart';
 import 'package:tramipet/src/pages/rendirlibre_page.dart';
 import 'package:tramipet/src/pages/certalumnoregular_page.dart';
 import 'package:tramipet/src/pages/certalumnoretiro_page.dart';
+import 'package:tramipet/src/pages/login_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       ],
       initialRoute: '/',
       routes: {
-        '/': (BuildContext context) => HomePage(),
+        '/': (BuildContext context) => LoginPage(),
         'rendir_febrero': (BuildContext context) => RendirFebreroPage(),
         'rendir_libre': (BuildContext context) => RendirLibrePage(),
         'cert_alumno_regular': (BuildContext context) =>

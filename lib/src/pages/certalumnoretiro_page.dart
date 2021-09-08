@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 import 'package:tramipet/src/pages/pantalla_finalizado_certificados.dart';

@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('TramiPET v1.2'),
+        title: Text('TramiPET v1.2.1'),
       ),
       drawer: Drawer(
         child: ListView(
@@ -20,10 +20,17 @@ class HomePage extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  //        Expanded(child:
-                  //             Image.asset('images/logos.png'),      { Para poner un logo }
-                  //            ),
-                  Text('Menu de informacion'),
+                  Expanded(
+                    child: Image.asset('assets/tramipet.png'),
+                  ),
+                  Text(
+                    'Tramipet - Menu del alumno',
+                    style: TextStyle(
+                      fontFamily: 'Sansation_Light',
+                      fontSize: 16.0,
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    ),
+                  ),
                   SizedBox(
                     height: 10.0,
                   ),

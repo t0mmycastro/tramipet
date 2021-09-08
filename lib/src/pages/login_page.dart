@@ -18,6 +18,18 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Flexible(
+                child: Image.asset('assets/tramipet.png'),
+              ),
+              Text(
+                'Tramipet',
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  fontFamily: 'Sansation_Light',
+                  fontSize: 36.0,
+                ),
+              ),
               SizedBox(
                 height: 15.0,
               ),

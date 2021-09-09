@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:tramipet/src/pages/home_page.dart';
+import 'package:tramipet/src/widgets/Header.dart';
+import 'package:tramipet/src/widgets/Logo.dart';
+import 'package:tramipet/src/widgets/TextFieldCustom.dart';
 
 class LoginPage extends StatefulWidget {
   static String id = 'login_page';
@@ -16,28 +19,23 @@ class _LoginPageState extends State<LoginPage> {
       child: Scaffold(
         body: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            //  mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Flexible(
-                child: Image.asset('assets/tramipet.png'),
-              ),
-              Text(
-                'Tramipet',
-                textAlign: TextAlign.center,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                  fontFamily: 'Sansation_Light',
-                  fontSize: 36.0,
-                ),
-              ),
-              SizedBox(
-                height: 15.0,
-              ),
-              _userTextField(),
+              HeaderLogin(),
+              LogoHeader(),
               SizedBox(
                 height: 10.0,
               ),
-              _passwordTextField(),
+              Text(
+                'Tramipet - Aplicación de trámites escolares',
+              ), // Esto después lo edito mejor
+              SizedBox(
+                height: 20.0,
+              ),
+              SizedBox(
+                height: 30.0,
+              ),
+              _userTextField(),
               SizedBox(
                 height: 20.0,
               ),
@@ -54,33 +52,19 @@ class _LoginPageState extends State<LoginPage> {
         builder: (BuildContext context, AsyncSnapshot snapshot) {
       return Container(
         padding: EdgeInsets.symmetric(horizontal: 35.0),
-        child: TextField(
-          keyboardType: TextInputType.emailAddress,
-          decoration: InputDecoration(
-            icon: Icon(Icons.email),
-            hintText: 'ejemplo@correo.com',
-            labelText: 'Correo electronico:',
-          ),
-          onChanged: (value) {},
-        ),
-      );
-    });
-  }
-
-  Widget _passwordTextField() {
-    return StreamBuilder(
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
-      return Container(
-        padding: EdgeInsets.symmetric(horizontal: 35.0),
-        child: TextField(
-          keyboardType: TextInputType.emailAddress,
-          obscureText: true,
-          decoration: InputDecoration(
-            icon: Icon(Icons.lock),
-            hintText: 'Contrasena',
-            labelText: 'Contrasena',
-          ),
-          onChanged: (value) {},
+        child: Column(
+          children: [
+            TextFieldCustom(
+                icono: Icons.mail_outline,
+                type: TextInputType.emailAddress,
+                texto: 'Email Address'),
+            SizedBox(height: 20),
+            TextFieldCustom(
+                icono: Icons.visibility_off,
+                type: TextInputType.text,
+                pass: true,
+                texto: 'Password'),
+          ],
         ),
       );
     });
@@ -90,21 +74,18 @@ class _LoginPageState extends State<LoginPage> {
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 15));
 
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          const SizedBox(height: 30),
-          ElevatedButton(
-            style: style,
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return HomePage();
-              }));
-            },
-            child: const Text('Iniciar sesión'),
-          ),
-        ],
+    return Container(
+      margin: EdgeInsets.all(50),
+      decoration: BoxDecoration(
+          color: Color(0xff89dbf5), borderRadius: BorderRadius.circular(50)),
+      child: TextButton(
+        child: Text('Iniciar sesión',
+            style: TextStyle(color: Colors.white, fontSize: 18)),
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return HomePage();
+          }));
+        },
       ),
     );
   }

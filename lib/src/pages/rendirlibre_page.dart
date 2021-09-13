@@ -16,6 +16,7 @@ class _RendirLibrePageState extends State<RendirLibrePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Rendir materias Libre'),
+        backgroundColor: Color(0xff43cbff),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),

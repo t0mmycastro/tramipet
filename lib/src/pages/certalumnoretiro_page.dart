@@ -21,6 +21,7 @@ class _CertAlumnoRetiroPageState extends State<CertAlumnoRetiroPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Certificado de alumno retiro'),
+        backgroundColor: Color(0xff43cbff),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),

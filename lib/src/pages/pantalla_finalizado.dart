@@ -8,6 +8,9 @@ class PantallaFinalizado extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('¡Ya está todo listo!'),
+        automaticallyImplyLeading: false,
+        backgroundColor: Color(0xff43cbff),
+        centerTitle: true,
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 300.0),

@@ -8,7 +8,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('TramiPET v1.2.1'),
+        title: Text('TramiPET v1.2.2'),
+        backgroundColor: Color(0xff43cbff),
       ),
       drawer: Drawer(
         child: ListView(
@@ -16,7 +17,7 @@ class HomePage extends StatelessWidget {
           children: [
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.cyan[200],
+                color: Color(0xff43cbff),
               ),
               child: Column(
                 children: [

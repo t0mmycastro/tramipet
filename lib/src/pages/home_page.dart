@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('TramiPET v1.2.2'),
+        title: Text('TramiPET v1.2.3'),
         backgroundColor: Color(0xff43cbff),
       ),
       drawer: Drawer(

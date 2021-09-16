@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "789948886498",
+    "project_id": "tramipet",
+    "storage_bucket": "tramipet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:789948886498:android:24bace5e5e9a29b2da5dbb",
+        "android_client_info": {
+          "package_name": "com.example.componentes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "789948886498-hsjlvdot9j2rq46g146kr9apug10n7t0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn6uAlH7EIemJq2-aMZeFIpfsGNKBQ810"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "789948886498-hsjlvdot9j2rq46g146kr9apug10n7t0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

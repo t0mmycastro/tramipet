@@ -6,3 +6,12 @@ abstract class TramipetloginEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class Logueando extends TramipetloginEvent {
+  final String email;
+  final String pass;
+
+  Logueando(this.email, this.pass);
+  @override
+  List<Object> get props => [email, pass];
+}

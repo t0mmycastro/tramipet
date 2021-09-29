@@ -17,7 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Center(
+        body: SingleChildScrollView(
           child: Column(
             //  mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -57,13 +57,13 @@ class _LoginPageState extends State<LoginPage> {
             TextFieldCustom(
                 icono: Icons.mail_outline,
                 type: TextInputType.emailAddress,
-                texto: 'Email Address'),
+                texto: 'Correo electronico'),
             SizedBox(height: 20),
             TextFieldCustom(
                 icono: Icons.visibility_off,
                 type: TextInputType.text,
                 pass: true,
-                texto: 'Password'),
+                texto: 'Contraseña'),
           ],
         ),
       );

@@ -16,8 +16,8 @@ class TextFieldCustom extends StatelessWidget {
       decoration: InputDecoration(
         hintText: texto,
         filled: true,
-        fillColor: Color(0xff89dbf5),
-        prefixIcon: Icon(icono, color: Colors.grey),
+        fillColor: Color(0xfffffff),
+        prefixIcon: Icon(icono, color: Colors.cyan),
         border: OutlineInputBorder(
             borderSide: BorderSide(color: Color(0xffEBDCFA)),
             borderRadius: BorderRadius.circular(50)),

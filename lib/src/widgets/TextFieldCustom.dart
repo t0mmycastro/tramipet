@@ -6,7 +6,11 @@ class TextFieldCustom extends StatelessWidget {
   final bool pass;
   final String texto;
 
-  const TextFieldCustom({this.icono, this.type, this.pass = false, this.texto});
+  const TextFieldCustom(
+      {required this.icono,
+      required this.type,
+      this.pass = false,
+      required this.texto});
 
   @override
   Widget build(BuildContext context) {

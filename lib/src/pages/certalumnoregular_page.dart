@@ -31,8 +31,6 @@ class _CertAlumnoRegularPageState extends State<CertAlumnoRegularPage> {
           Divider(),
           _crearDniCertRegular(),
           Divider(),
-          _crearCursoCertRegular(),
-          Divider(),
           _crearFecha(context),
           Divider(),
           _crearAnioElectivoCertRegular(),
@@ -102,25 +100,6 @@ class _CertAlumnoRegularPageState extends State<CertAlumnoRegularPage> {
     return lista;
   }
 
-  Widget _crearCursoCertRegular() {
-    return Row(
-      children: <Widget>[
-        Icon(Icons.select_all),
-        SizedBox(width: 30.0),
-        Expanded(
-          child: DropdownButton(
-              value: _opcionSeleccionada,
-              items: getOpcionesCurso(),
-              onChanged: (opt) {
-                setState(() {
-                  _opcionSeleccionada = opt;
-                });
-              }),
-        )
-      ],
-    );
-  }
-
   Widget _crearFecha(BuildContext context) {
     return TextField(
       enableInteractiveSelection: false,
@@ -155,7 +134,7 @@ class _CertAlumnoRegularPageState extends State<CertAlumnoRegularPage> {
   }
 
   _selectDate(BuildContext context) async {
-    DateTime picked = await showDatePicker(
+    DateTime? picked = await showDatePicker(
       context: context,
       initialDate: new DateTime.now(),
       firstDate: new DateTime(2021),

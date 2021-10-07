@@ -103,7 +103,7 @@ class _RendirFebreroPageState extends State<RendirFebreroPage> {
   }
 
   _selectDate(BuildContext context) async {
-    DateTime picked = await showDatePicker(
+    DateTime? picked = await showDatePicker(
       context: context,
       initialDate: new DateTime.now(),
       firstDate: new DateTime(2021),

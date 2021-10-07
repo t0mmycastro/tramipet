@@ -32,8 +32,6 @@ class _CertAlumnoRetiroPageState extends State<CertAlumnoRetiroPage> {
           Divider(),
           _crearDniCertRetiro(),
           Divider(),
-          _crearCursoCertRetiro(),
-          Divider(),
           _crearFecha(context),
           Divider(),
           _crearAnioElectivoCertRetiro(),
@@ -41,8 +39,6 @@ class _CertAlumnoRetiroPageState extends State<CertAlumnoRetiroPage> {
           _crearTutorCertRetiro(),
           Divider(),
           _crearTelefonoCertRetiro(),
-          Divider(),
-          _checkBox(),
           Divider(),
           _crearBoton(context),
         ],
@@ -105,25 +101,6 @@ class _CertAlumnoRetiroPageState extends State<CertAlumnoRetiroPage> {
     return lista;
   }
 
-  Widget _crearCursoCertRetiro() {
-    return Row(
-      children: <Widget>[
-        Icon(Icons.select_all),
-        SizedBox(width: 30.0),
-        Expanded(
-          child: DropdownButton(
-              value: _opcionSeleccionada,
-              items: getOpcionesCurso(),
-              onChanged: (opt) {
-                setState(() {
-                  _opcionSeleccionada = opt;
-                });
-              }),
-        )
-      ],
-    );
-  }
-
   Widget _crearFecha(BuildContext context) {
     return TextField(
       enableInteractiveSelection: false,
@@ -158,7 +135,7 @@ class _CertAlumnoRetiroPageState extends State<CertAlumnoRetiroPage> {
   }
 
   _selectDate(BuildContext context) async {
-    DateTime picked = await showDatePicker(
+    DateTime? picked = await showDatePicker(
       context: context,
       initialDate: new DateTime.now(),
       firstDate: new DateTime(2021),
@@ -200,18 +177,6 @@ class _CertAlumnoRetiroPageState extends State<CertAlumnoRetiroPage> {
         icon: Icon(Icons.add_ic_call),
       ),
     );
-  }
-
-  Widget _checkBox() {
-    return CheckboxListTile(
-        title: Text(
-            'Acepta que la presente autorización deslinda de toda responsabilidad a la institución, una vez consentida la misma.'),
-        value: _bloquearCheck,
-        onChanged: (valor) {
-          setState(() {
-            _bloquearCheck = valor;
-          });
-        });
   }
 
   Widget _crearBoton(BuildContext context) {

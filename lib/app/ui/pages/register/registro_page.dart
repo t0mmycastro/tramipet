@@ -29,18 +29,18 @@ class RegistroPage extends StatelessWidget {
             onTap: () => FocusScope.of(context).unfocus(),
             child: Container(
               width: double.infinity,
-              padding: const EdgeInsets.all(15),
+              height: double.infinity,
               color: Colors.transparent,
               child: Form(
                 key: controller.formKey,
-                child: Column(
+                child: ListView(
+                  padding: const EdgeInsets.all(15),
                   children: [
                     CustomInputField(
                       label: "Nombre",
                       onChanged: controller.onNameChanged,
                       validator: (text) {
-                        if (text == null) return "Nombre inválido";
-                        return isValidName(text) ? null : "Nombre inválido";
+                        return isValidName(text!) ? null : "Nombre inválido";
                       },
                     ),
                     const SizedBox(height: 15.0),
@@ -48,8 +48,7 @@ class RegistroPage extends StatelessWidget {
                       label: "Apellido",
                       onChanged: controller.onLastNameChanged,
                       validator: (text) {
-                        if (text == null) return "Apellido inválido";
-                        return isValidName(text) ? null : "Apellido inválido";
+                        return isValidName(text!) ? null : "Apellido inválido";
                       },
                     ),
                     const SizedBox(height: 15.0),
@@ -58,8 +57,7 @@ class RegistroPage extends StatelessWidget {
                       inputType: TextInputType.emailAddress,
                       onChanged: controller.onEmailChanged,
                       validator: (text) {
-                        if (text == null) return "Email inválido";
-                        return isValidEmail(text) ? null : "Email inválido";
+                        return isValidEmail(text!) ? null : "Email inválido";
                       },
                     ),
                     const SizedBox(height: 15.0),
@@ -68,8 +66,7 @@ class RegistroPage extends StatelessWidget {
                       onChanged: controller.onPasswordChanged,
                       isPassword: true,
                       validator: (text) {
-                        if (text == null) return "Contraseña inválida";
-                        if (text.trim().length >= 6) {
+                        if (text!.trim().length >= 6) {
                           return null;
                         }
                         return "Contraseña inválida";
@@ -84,11 +81,10 @@ class RegistroPage extends StatelessWidget {
                           onChanged: controller.onVPasswordChanged,
                           isPassword: true,
                           validator: (text) {
-                            if (text == null) return "Contraseña inválida";
                             if (controller.state.password != text) {
                               return "Las contraseñas no coinciden";
                             }
-                            if (text.trim().length >= 6) {
+                            if (text!.trim().length >= 6) {
                               return null;
                             }
 

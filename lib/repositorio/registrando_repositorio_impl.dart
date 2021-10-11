@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:tramipet/app/domain/responses/sign_up_response.dart';
 import 'package:tramipet/repositorio/registrando_repositorio.dart';
 
 class SignUpRepositoryImpl implements SignUpRepository {

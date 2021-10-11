@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:tramipet/app/domain/responses/sign_up_response.dart';
 
 abstract class SignUpRepository {
   Future<SignUpResponse> registrando(SignUpData data);
@@ -14,24 +14,3 @@ class SignUpData {
     required this.password,
   });
 }
-
-class SignUpResponse {
-  final SignUpError? error;
-  final User? user;
-
-  SignUpResponse(this.error, this.user);
-}
-
-parseStringToSignUpError(String text) {
-  switch (text) {
-    case "email-already-in-use":
-      return SignUpError.emailAlreadyInUse;
-
-    case "weak-password":
-      return SignUpError.weakPassword;
-    default:
-      return SignUpError.unknown;
-  }
-}
-
-enum SignUpError { emailAlreadyInUse, weakPassword, unknown }

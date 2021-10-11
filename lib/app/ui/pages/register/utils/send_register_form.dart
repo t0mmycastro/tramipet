@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:tramipet/app/domain/responses/sign_up_response.dart';
 import 'package:tramipet/app/ui/global_widgets/dialogs/dialogs.dart';
 import 'package:tramipet/app/ui/global_widgets/dialogs/progress_dialog.dart';
 import 'package:tramipet/app/ui/routes/routes.dart';
-import 'package:tramipet/repositorio/registrando_repositorio.dart';
 import '../registro_page.dart' show registerProvider;
 import 'package:flutter_meedu/router.dart' as router;
 

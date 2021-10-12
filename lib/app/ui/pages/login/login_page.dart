@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_meedu/router.dart' as router;
 import 'package:flutter_meedu/state.dart';
+import 'package:tramipet/app/ui/global_controllers/session_controller.dart';
 import 'package:tramipet/app/ui/global_widgets/custom_input_field.dart';
 import 'package:tramipet/app/ui/pages/login/utils/send_login_form.dart';
 import 'package:tramipet/app/ui/routes/routes.dart';
-
 import 'package:flutter_meedu/meedu.dart';
 import 'package:tramipet/app/utils/email_validator.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'controller/login_controller.dart';
 
 final loginProvider = SimpleProvider(
-  (_) => LoginController(),
+  (_) => LoginController(sessionProvider.read),
 );
 
 class LoginPage extends StatelessWidget {
@@ -60,13 +60,34 @@ class LoginPage extends StatelessWidget {
                         ),
                         const SizedBox(height: 20),
                         ElevatedButton(
+                          style: ButtonStyle(
+                              textStyle: MaterialStateProperty.all(
+                                const TextStyle(
+                                  fontSize: 18,
+                                ),
+                              ),
+                              elevation: MaterialStateProperty.all(7),
+                              shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                              )),
                           onPressed: () => sendLoginForm(context),
                           child: const Text("Sign In"),
                         ),
                         const SizedBox(height: 20),
-                        ElevatedButton(
-                          onPressed: () => router.pushNamed(Routes.REGISTER),
-                          child: const Text("Sign Up"),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text("¿No tienes una cuenta de alumno?"),
+                            TextButton(
+                              onPressed: () =>
+                                  router.pushNamed(Routes.REGISTER),
+                              child: const Text("Registrate",
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
+                            ),
+                          ],
                         ),
                       ]),
                 ),

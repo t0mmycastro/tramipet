@@ -1,5 +1,7 @@
 import 'package:flutter_meedu/meedu.dart';
+import 'package:tramipet/app/data/repositories_impl/account_repository_impl.dart';
 import 'package:tramipet/app/data/repositories_impl/authentication_repository_impl.dart';
+import 'package:tramipet/app/domain/repositories/account_repository.dart';
 import 'package:tramipet/app/domain/repositories/authentication_repository.dart';
 import 'package:tramipet/repositorio/registrando_repositorio.dart';
 import 'package:tramipet/repositorio/registrando_repositorio_impl.dart';
@@ -12,5 +14,11 @@ void injectDependencies() {
 
   Get.i.lazyPut<SignUpRepository>(
     () => SignUpRepositoryImpl(FirebaseAuth.instance),
+  );
+
+  Get.i.lazyPut<AccountRepository>(
+    () => AccountRepositoryImpl(
+      FirebaseAuth.instance,
+    ),
   );
 }

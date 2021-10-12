@@ -24,8 +24,8 @@ class RegisterState extends Equatable {
       email: email ?? this.email,
       password: password ?? this.password,
       vpassword: vpassword ?? this.vpassword,
-      nombre: password ?? this.nombre,
-      apellido: password ?? this.apellido,
+      nombre: nombre ?? this.nombre,
+      apellido: apellido ?? this.apellido,
     );
   }
 

@@ -1,16 +1,19 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_meedu/flutter_meedu.dart';
 import 'package:tramipet/app/domain/responses/sign_up_response.dart';
+import 'package:tramipet/app/ui/global_controllers/session_controller.dart';
 import 'package:tramipet/app/ui/pages/register/controller/register_state.dart';
 import 'package:tramipet/repositorio/registrando_repositorio.dart';
 
 class RegisterController extends StateNotifier<RegisterState> {
-  RegisterController() : super(RegisterState.initialState);
+  final SessionController _sessionController;
+  RegisterController(this._sessionController)
+      : super(RegisterState.initialState);
   final GlobalKey<FormState> formKey = GlobalKey();
-  final _signUpRepository = Get.i.find<SignUpRepository>();
+  final SignUpRepository _signUpRepository = Get.i.find();
 
-  Future<SignUpResponse> submit() {
-    return _signUpRepository.registrando(
+  Future<SignUpResponse> submit() async {
+    final response = await _signUpRepository.registrando(
       SignUpData(
         nombre: state.nombre,
         apellido: state.apellido,
@@ -18,6 +21,12 @@ class RegisterController extends StateNotifier<RegisterState> {
         password: state.password,
       ),
     );
+
+    if (response.error == null) {
+      _sessionController.setUser(response.user!);
+    }
+
+    return response;
   }
 
   void onNameChanged(String text) {

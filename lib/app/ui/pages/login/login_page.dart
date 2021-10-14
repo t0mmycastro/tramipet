@@ -9,6 +9,7 @@ import 'package:flutter_meedu/meedu.dart';
 import 'package:tramipet/app/utils/email_validator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'controller/login_controller.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 final loginProvider = SimpleProvider(
   (_) => LoginController(sessionProvider.read),
@@ -35,6 +36,10 @@ class LoginPage extends StatelessWidget {
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
+                        SvgPicture.asset(
+                          'assets/images/bienvenido_login.svg',
+                          width: 300,
+                        ),
                         CustomInputField(
                           label: "Email",
                           onChanged: controller.onEmailChanged,
@@ -73,7 +78,7 @@ class LoginPage extends StatelessWidget {
                                 ),
                               )),
                           onPressed: () => sendLoginForm(context),
-                          child: const Text("Sign In"),
+                          child: const Text("Iniciar sesión"),
                         ),
                         const SizedBox(height: 20),
                         Row(

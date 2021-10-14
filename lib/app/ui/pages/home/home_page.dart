@@ -41,55 +41,6 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
-          drawer: Drawer(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: [
-                DrawerHeader(
-                  decoration: const BoxDecoration(
-                    color: Color(0xff43cbff),
-                  ),
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: Image.asset('assets/tramipet.png'),
-                      ),
-                      const Text(
-                        'Tramipet - Menu del alumno',
-                        style: TextStyle(
-                          fontFamily: 'Sansation_Light',
-                          fontSize: 16.0,
-                          color: Color.fromARGB(255, 255, 255, 255),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 10.0,
-                      ),
-                    ],
-                  ),
-                ),
-                ListTile(
-                  leading: const Icon(Icons.person),
-                  title: const Text('Perfil del alumno'),
-                  onTap: () {},
-                ),
-                ListTile(
-                  leading: const Icon(Icons.person),
-                  title: const Text('Solicitudes pedidas'),
-                  onTap: () {},
-                ),
-                const SizedBox(height: 450),
-                CupertinoButton(
-                  color: Colors.blue,
-                  child: const Text("Salir"),
-                  onPressed: () async {
-                    await Get.i.find<AuthenticationRepository>().signOut();
-                    router.pushNamedAndRemoveUntil(Routes.LOGIN);
-                  },
-                ),
-              ],
-            ),
-          ),
         );
       },
     );

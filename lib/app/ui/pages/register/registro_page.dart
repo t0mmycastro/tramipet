@@ -25,7 +25,9 @@ class RegistroPage extends StatelessWidget {
       provider: registerProvider,
       builder: (_, controller) {
         return Scaffold(
-          appBar: AppBar(),
+          appBar: AppBar(
+            backgroundColor: const Color(0xff43cbff),
+          ),
           body: GestureDetector(
             onTap: () => FocusScope.of(context).unfocus(),
             child: Container(

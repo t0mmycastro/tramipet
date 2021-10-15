@@ -29,8 +29,7 @@ class HomePage extends StatelessWidget {
         return Scaffold(
           bottomNavigationBar: HomeTabBar(),
           appBar: AppBar(
-            title: const Text('TramiPET v1.2.3'),
-            backgroundColor: const Color(0xff43cbff),
+            title: const Text('TramiPET'),
           ),
           body: SafeArea(
             child: TabBarView(

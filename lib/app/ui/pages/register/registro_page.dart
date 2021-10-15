@@ -25,9 +25,7 @@ class RegistroPage extends StatelessWidget {
       provider: registerProvider,
       builder: (_, controller) {
         return Scaffold(
-          appBar: AppBar(
-            backgroundColor: const Color(0xff43cbff),
-          ),
+          appBar: AppBar(),
           body: GestureDetector(
             onTap: () => FocusScope.of(context).unfocus(),
             child: Container(
@@ -97,9 +95,8 @@ class RegistroPage extends StatelessWidget {
                       },
                     ),
                     const SizedBox(height: 30),
-                    CupertinoButton(
+                    ElevatedButton(
                       child: const Text("Registrarse"),
-                      color: Colors.blue,
                       onPressed: () => sendRegisterForm(context),
                     ),
                   ],

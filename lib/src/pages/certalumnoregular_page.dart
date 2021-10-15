@@ -20,7 +20,6 @@ class _CertAlumnoRegularPageState extends State<CertAlumnoRegularPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Certificado de alumno regular'),
-        backgroundColor: Color(0xff43cbff),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),

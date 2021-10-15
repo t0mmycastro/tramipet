@@ -9,7 +9,6 @@ class PantallaFinalizadoCertificados extends StatelessWidget {
       appBar: AppBar(
         title: Text('¡Ya está todo listo!'),
         automaticallyImplyLeading: false,
-        backgroundColor: Color(0xff43cbff),
         centerTitle: true,
       ),
       body: ListView(

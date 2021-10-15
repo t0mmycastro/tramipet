@@ -16,7 +16,6 @@ class _RendirFebreroPageState extends State<RendirFebreroPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Rendir materias Febrero'),
-        backgroundColor: Color(0xff43cbff),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),

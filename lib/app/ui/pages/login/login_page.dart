@@ -33,68 +33,67 @@ class LoginPage extends StatelessWidget {
                 padding: const EdgeInsets.all(15),
                 child: Form(
                   key: controller.formKey,
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        SvgPicture.asset(
-                          'assets/images/bienvenido_login.svg',
-                          width: 300,
-                        ),
-                        CustomInputField(
-                          label: "Email",
-                          onChanged: controller.onEmailChanged,
-                          inputType: TextInputType.emailAddress,
-                          validator: (text) {
-                            if (isValidEmail(text!)) {
-                              return null;
-                            }
-                            return "Email inválido";
-                          },
-                        ),
-                        const SizedBox(height: 20),
-                        CustomInputField(
-                          label: "Contraseña",
-                          onChanged: controller.onPasswordChanged,
-                          isPassword: true,
-                          validator: (text) {
-                            if (text!.trim().length >= 6) {
-                              return null;
-                            }
-                            return "Contraseña inválida";
-                          },
-                        ),
-                        const SizedBox(height: 20),
-                        ElevatedButton(
-                          style: ButtonStyle(
-                              textStyle: MaterialStateProperty.all(
-                                const TextStyle(
-                                  fontSize: 18,
-                                ),
+                  child: SingleChildScrollView(
+                    child: Column(children: [
+                      const SizedBox(height: 200),
+                      SvgPicture.asset(
+                        'assets/images/bienvenido_login.svg',
+                        width: 300,
+                      ),
+                      CustomInputField(
+                        label: "Email",
+                        onChanged: controller.onEmailChanged,
+                        inputType: TextInputType.emailAddress,
+                        validator: (text) {
+                          if (isValidEmail(text!)) {
+                            return null;
+                          }
+                          return "Email inválido";
+                        },
+                      ),
+                      const SizedBox(height: 20),
+                      CustomInputField(
+                        label: "Contraseña",
+                        onChanged: controller.onPasswordChanged,
+                        isPassword: true,
+                        validator: (text) {
+                          if (text!.trim().length >= 6) {
+                            return null;
+                          }
+                          return "Contraseña inválida";
+                        },
+                      ),
+                      const SizedBox(height: 20),
+                      ElevatedButton(
+                        style: ButtonStyle(
+                            textStyle: MaterialStateProperty.all(
+                              const TextStyle(
+                                fontSize: 18,
                               ),
-                              elevation: MaterialStateProperty.all(7),
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                              )),
-                          onPressed: () => sendLoginForm(context),
-                          child: const Text("Iniciar sesión"),
-                        ),
-                        const SizedBox(height: 20),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Text("¿No tienes una cuenta de alumno?"),
-                            TextButton(
-                              onPressed: () =>
-                                  router.pushNamed(Routes.REGISTER),
-                              child: const Text("Registrate",
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.bold)),
                             ),
-                          ],
-                        ),
-                      ]),
+                            elevation: MaterialStateProperty.all(7),
+                            shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            )),
+                        onPressed: () => sendLoginForm(context),
+                        child: const Text("Iniciar sesión"),
+                      ),
+                      const SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text("¿No tienes una cuenta de alumno?"),
+                          TextButton(
+                            onPressed: () => router.pushNamed(Routes.REGISTER),
+                            child: const Text("Registrate",
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                          ),
+                        ],
+                      ),
+                    ]),
+                  ),
                 ),
               ),
             ),

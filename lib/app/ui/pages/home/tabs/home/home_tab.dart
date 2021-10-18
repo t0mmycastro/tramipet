@@ -11,35 +11,104 @@ class HomeTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(height: 50),
           LabelButton(
-            label: 'Pedido de certificado de alumno regular',
+            label: 'Solicitud para rendir materias',
             value: '',
             onPressed: () {
-              router.pushNamed(Routes.FORM1);
+              showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                        title: const Text('Rendir materias'),
+                        content: Form(
+                          child: Column(
+                            children: [
+                              TextFormField(
+                                onChanged: (value) {},
+                                decoration: const InputDecoration(
+                                    hintText: "Ingrese su nombre "),
+                              ),
+                              const SizedBox(height: 10),
+                              TextFormField(
+                                onChanged: (value) {},
+                                decoration: const InputDecoration(
+                                    hintText: "Ingrese su DNI "),
+                              ),
+                              const SizedBox(height: 10),
+                              TextFormField(
+                                onChanged: (value) {},
+                                decoration: const InputDecoration(
+                                    hintText: "Materia a rendir"),
+                              ),
+                              const SizedBox(height: 10),
+                              TextFormField(
+                                onChanged: (value) {},
+                                decoration:
+                                    const InputDecoration(hintText: "Teléfono"),
+                              ),
+                              const SizedBox(height: 10),
+                              TextButton(
+                                onPressed: () {},
+                                child: const Text('Cancelar'),
+                              ),
+                              TextButton(
+                                onPressed: () {},
+                                child: const Text('Enviar'),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ));
             },
           ),
           LabelButton(
-            label: 'Pedido de certificado de alumno de retiro',
+            label: 'Solicitar certificados',
             value: '',
             onPressed: () {
-              router.pushNamed(Routes.FORM2);
-            },
-          ),
-          LabelButton(
-            label: 'Solicitud para mesas de febrero',
-            value: '',
-            onPressed: () {
-              router.pushNamed(Routes.FORM3);
-            },
-          ),
-          LabelButton(
-            label: 'Solicitud para mesas libres',
-            value: '',
-            onPressed: () {
-              router.pushNamed(Routes.FORM4);
+              showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                        title: const Text('Solicitud de certificados'),
+                        content: Form(
+                          child: Column(
+                            children: [
+                              TextFormField(
+                                onChanged: (value) {},
+                                decoration: const InputDecoration(
+                                    hintText: "Ingrese su nombre "),
+                              ),
+                              const SizedBox(height: 10),
+                              TextFormField(
+                                onChanged: (value) {},
+                                decoration: const InputDecoration(
+                                    hintText: "Ingrese su DNI "),
+                              ),
+                              const SizedBox(height: 10),
+                              TextFormField(
+                                onChanged: (value) {},
+                                decoration: const InputDecoration(
+                                    hintText: "Materia a rendir"),
+                              ),
+                              const SizedBox(height: 10),
+                              TextFormField(
+                                onChanged: (value) {},
+                                decoration:
+                                    const InputDecoration(hintText: "Teléfono"),
+                              ),
+                              const SizedBox(height: 10),
+                              TextButton(
+                                onPressed: () {},
+                                child: const Text('Cancelar'),
+                              ),
+                              TextButton(
+                                onPressed: () {},
+                                child: const Text('Enviar'),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ));
             },
           ),
         ],

@@ -9,9 +9,6 @@ import 'package:tramipet/app/ui/pages/home/tabs/home/home_tab.dart';
 import 'package:tramipet/app/ui/pages/home/tabs/profile/profile_tab.dart';
 import 'package:tramipet/app/ui/pages/home/widgets/home_tab_bar.dart';
 import 'package:tramipet/app/ui/routes/routes.dart';
-
-import 'package:tramipet/src/providers/menu_provider.dart';
-import 'package:tramipet/src/utils/icono_string_util.dart';
 import 'package:tramipet/src/widgets/Menu.dart';
 
 import 'controller/home_controller.dart';

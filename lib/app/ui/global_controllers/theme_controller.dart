@@ -69,7 +69,7 @@ class ThemeController extends SimpleNotifier {
       textTheme: _textTheme.merge(ThemeData.dark().textTheme).apply(
             fontFamily: _textTheme.bodyText1!.fontFamily,
           ),
-      scaffoldBackgroundColor: const Color(0xff102027),
+      scaffoldBackgroundColor: const Color(0xff1b1b1b),
       primaryColorDark: colorPrimarioDark,
       textSelectionTheme: const TextSelectionThemeData(
         cursorColor: colorPrimarioDark,

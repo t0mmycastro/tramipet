@@ -3,9 +3,43 @@ import 'package:flutter_meedu/state.dart';
 import 'package:tramipet/app/ui/global_controllers/session_controller.dart';
 import 'package:flutter_meedu/router.dart' as router;
 import 'package:tramipet/app/ui/routes/routes.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-class HomeTab extends StatelessWidget {
+class HomeTab extends StatefulWidget {
   const HomeTab({Key? key}) : super(key: key);
+
+  @override
+  State<HomeTab> createState() => _HomeTabState();
+}
+
+class _HomeTabState extends State<HomeTab> {
+  TextEditingController nombreSolicitudesForm = TextEditingController();
+  TextEditingController apellidoSolicitudesForm = TextEditingController();
+  TextEditingController dniSolicitudesForm = TextEditingController();
+  TextEditingController materiaSolicitudesForm = TextEditingController();
+  TextEditingController telefonoSolicitudesForm = TextEditingController();
+
+  final firebase = FirebaseFirestore.instance;
+
+  enviarRendirMaterias() async {
+    try {
+      await firebase.collection("SolicitudesMaterias").doc().set({
+        "nombre": nombreSolicitudesForm.text,
+        "apellido": apellidoSolicitudesForm.text,
+        "dni": dniSolicitudesForm.text,
+        "materia": materiaSolicitudesForm.text,
+        "telefono": telefonoSolicitudesForm.text,
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  cancelar() async {
+    try {} catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,35 +59,58 @@ class HomeTab extends StatelessWidget {
                           child: Column(
                             children: [
                               TextFormField(
+                                controller: nombreSolicitudesForm,
                                 onChanged: (value) {},
                                 decoration: const InputDecoration(
                                     hintText: "Ingrese su nombre "),
                               ),
                               const SizedBox(height: 10),
                               TextFormField(
+                                controller: apellidoSolicitudesForm,
+                                onChanged: (value) {},
+                                decoration: const InputDecoration(
+                                    hintText: "Ingrese su apellido"),
+                              ),
+                              const SizedBox(height: 10),
+                              TextFormField(
+                                controller: dniSolicitudesForm,
                                 onChanged: (value) {},
                                 decoration: const InputDecoration(
                                     hintText: "Ingrese su DNI "),
                               ),
                               const SizedBox(height: 10),
                               TextFormField(
+                                controller: materiaSolicitudesForm,
                                 onChanged: (value) {},
                                 decoration: const InputDecoration(
                                     hintText: "Materia a rendir"),
                               ),
                               const SizedBox(height: 10),
                               TextFormField(
+                                controller: telefonoSolicitudesForm,
                                 onChanged: (value) {},
                                 decoration:
                                     const InputDecoration(hintText: "Teléfono"),
                               ),
                               const SizedBox(height: 10),
                               TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  cancelar();
+                                  nombreSolicitudesForm.clear();
+                                  dniSolicitudesForm.clear();
+                                  materiaSolicitudesForm.clear();
+                                  telefonoSolicitudesForm.clear();
+                                },
                                 child: const Text('Cancelar'),
                               ),
                               TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  enviarRendirMaterias();
+                                  nombreSolicitudesForm.clear();
+                                  dniSolicitudesForm.clear();
+                                  materiaSolicitudesForm.clear();
+                                  telefonoSolicitudesForm.clear();
+                                },
                                 child: const Text('Enviar'),
                               ),
                             ],

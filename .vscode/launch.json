@@ -8,6 +8,7 @@
             "name": "tramipet",
             "request": "launch",
             "type": "dart",
+            "program": "lib/app/main.dart",
         },
         {
             "name": "tramipet (profile mode)",

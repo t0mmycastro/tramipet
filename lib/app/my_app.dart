@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:tramipet/app/ui/global_controllers/theme_controller.dart';
 import 'package:tramipet/app/ui/routes/app_routes.dart';
 import 'package:tramipet/app/ui/routes/routes.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_meedu/meedu.dart';
 import 'package:flutter_meedu/router.dart' as router;
 import 'package:flutter_meedu/state.dart';
 

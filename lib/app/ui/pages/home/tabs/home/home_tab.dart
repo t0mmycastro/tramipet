@@ -41,6 +41,8 @@ class _HomeTabState extends State<HomeTab> {
     }
   }
 
+  final _formCertKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -56,64 +58,94 @@ class _HomeTabState extends State<HomeTab> {
                   builder: (context) => AlertDialog(
                         title: const Text('Rendir materias'),
                         content: Form(
-                          child: Column(
-                            children: [
-                              TextFormField(
-                                controller: nombreSolicitudesForm,
-                                onChanged: (value) {},
-                                decoration: const InputDecoration(
-                                    hintText: "Ingrese su nombre "),
-                              ),
-                              const SizedBox(height: 10),
-                              TextFormField(
-                                controller: apellidoSolicitudesForm,
-                                onChanged: (value) {},
-                                decoration: const InputDecoration(
-                                    hintText: "Ingrese su apellido"),
-                              ),
-                              const SizedBox(height: 10),
-                              TextFormField(
-                                controller: dniSolicitudesForm,
-                                onChanged: (value) {},
-                                decoration: const InputDecoration(
-                                    hintText: "Ingrese su DNI "),
-                              ),
-                              const SizedBox(height: 10),
-                              TextFormField(
-                                controller: materiaSolicitudesForm,
-                                onChanged: (value) {},
-                                decoration: const InputDecoration(
-                                    hintText: "Materia a rendir"),
-                              ),
-                              const SizedBox(height: 10),
-                              TextFormField(
-                                controller: telefonoSolicitudesForm,
-                                onChanged: (value) {},
-                                decoration:
-                                    const InputDecoration(hintText: "Teléfono"),
-                              ),
-                              const SizedBox(height: 10),
-                              TextButton(
-                                onPressed: () {
-                                  cancelar();
-                                  nombreSolicitudesForm.clear();
-                                  dniSolicitudesForm.clear();
-                                  materiaSolicitudesForm.clear();
-                                  telefonoSolicitudesForm.clear();
-                                },
-                                child: const Text('Cancelar'),
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  enviarRendirMaterias();
-                                  nombreSolicitudesForm.clear();
-                                  dniSolicitudesForm.clear();
-                                  materiaSolicitudesForm.clear();
-                                  telefonoSolicitudesForm.clear();
-                                },
-                                child: const Text('Enviar'),
-                              ),
-                            ],
+                          key: _formCertKey,
+                          child: SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                TextFormField(
+                                  controller: nombreSolicitudesForm,
+                                  onChanged: (value) {},
+                                  decoration: const InputDecoration(
+                                    hintText: "Ingrese su nombre ",
+                                    icon: Icon(
+                                      Icons.accessibility,
+                                      color: Colors.blue,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                TextFormField(
+                                  controller: apellidoSolicitudesForm,
+                                  onChanged: (value) {},
+                                  decoration: const InputDecoration(
+                                    hintText: "Ingrese su apellido",
+                                    icon: Icon(
+                                      Icons.accessibility,
+                                      color: Colors.blue,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                TextFormField(
+                                  controller: dniSolicitudesForm,
+                                  onChanged: (value) {},
+                                  decoration: const InputDecoration(
+                                    hintText: "Ingrese su DNI ",
+                                    icon: Icon(
+                                      Icons.border_color,
+                                      color: Colors.blue,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                TextFormField(
+                                  controller: materiaSolicitudesForm,
+                                  onChanged: (value) {},
+                                  decoration: const InputDecoration(
+                                    hintText: "Materia a rendir",
+                                    icon: Icon(
+                                      Icons.book,
+                                      color: Colors.blue,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                TextFormField(
+                                  controller: telefonoSolicitudesForm,
+                                  onChanged: (value) {},
+                                  decoration: const InputDecoration(
+                                    hintText: "Teléfono",
+                                    icon: Icon(
+                                      Icons.aod,
+                                      color: Colors.blue,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                TextButton(
+                                  onPressed: () {
+                                    cancelar();
+                                    nombreSolicitudesForm.clear();
+                                    apellidoSolicitudesForm.clear();
+                                    dniSolicitudesForm.clear();
+                                    materiaSolicitudesForm.clear();
+                                    telefonoSolicitudesForm.clear();
+                                  },
+                                  child: const Text('Cancelar'),
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    enviarRendirMaterias();
+                                    nombreSolicitudesForm.clear();
+                                    apellidoSolicitudesForm.clear();
+                                    dniSolicitudesForm.clear();
+                                    materiaSolicitudesForm.clear();
+                                    telefonoSolicitudesForm.clear();
+                                  },
+                                  child: const Text('Enviar'),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ));

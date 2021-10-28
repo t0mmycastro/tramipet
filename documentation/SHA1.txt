@@ -1,0 +1,8 @@
+keytool -list -v -keystore C:\Users\Tomas\.android\debug.keystore -alias androiddebugkey -storepass android -keypass android 
+
+
+
+SHA1: FB:28:CA:94:DC:81:DE:FE:70:80:8D:C8:74:61:8D:6B:09:44:55:12
+
+
+SHA26: 

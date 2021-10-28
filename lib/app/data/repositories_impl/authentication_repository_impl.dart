@@ -1,16 +1,22 @@
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:tramipet/app/domain/repositories/authentication_repository.dart';
 import 'package:tramipet/app/domain/responses/sign_in_response.dart';
 
 class AuthenticationRepositoryImpl implements AuthenticationRepository {
   final FirebaseAuth _auth;
+  final GoogleSignIn _googleSignIn;
   User? _user;
 
   final Completer<void> _completer = Completer();
 
-  AuthenticationRepositoryImpl(this._auth) {
+  AuthenticationRepositoryImpl({
+    required FirebaseAuth firebaseAuth,
+    required GoogleSignIn googleSignIn,
+  })  : _auth = firebaseAuth,
+        _googleSignIn = googleSignIn {
     _init();
   }
 
@@ -45,7 +51,31 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
       final user = userCredential.user!;
       return SignInResponse(null, user);
     } on FirebaseAuthException catch (e) {
-      return SignInResponse(stringToSignInError(e.code), null);
+      return SignInResponse(getSignInError(e), null);
+    }
+  }
+
+  @override
+  Future<SignInResponse> signInWithGoogle() async {
+    try {
+      final account = await _googleSignIn.signIn();
+      if (account == null) {
+        // Ocurrio un error inesperado
+        return SignInResponse(SignInError.unknown, null);
+      }
+
+      final googleAuth = await account.authentication;
+
+      final OAuthCredential oAuthCredential = GoogleAuthProvider.credential(
+        idToken: googleAuth.idToken,
+        accessToken: googleAuth.accessToken,
+      );
+
+      final userCredential = await _auth.signInWithCredential(oAuthCredential);
+      return SignInResponse(null, userCredential.user);
+    } on FirebaseAuthException catch (e) {
+      e.credential?.providerId;
+      return SignInResponse(getSignInError(e), null);
     }
   }
 }

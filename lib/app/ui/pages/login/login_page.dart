@@ -4,6 +4,7 @@ import 'package:flutter_meedu/state.dart';
 import 'package:tramipet/app/ui/global_controllers/session_controller.dart';
 import 'package:tramipet/app/ui/global_widgets/custom_input_field.dart';
 import 'package:tramipet/app/ui/pages/login/utils/send_login_form.dart';
+import 'package:tramipet/app/ui/pages/login/utils/social_buttons.dart';
 import 'package:tramipet/app/ui/routes/routes.dart';
 import 'package:flutter_meedu/meedu.dart';
 import 'package:tramipet/app/utils/email_validator.dart';
@@ -92,6 +93,9 @@ class LoginPage extends StatelessWidget {
                           ),
                         ],
                       ),
+                      const Text("O inicia sesión con"),
+                      const SizedBox(height: 10),
+                      const SocialButtons(),
                     ]),
                   ),
                 ),

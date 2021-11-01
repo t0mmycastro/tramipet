@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tramipet/app/ui/icons/google_icons.dart';
+import 'package:tramipet/app/ui/pages/login/utils/sign_in_with_google.dart';
 
 class SocialButtons extends StatelessWidget {
   const SocialButtons({Key? key}) : super(key: key);
@@ -10,8 +11,8 @@ class SocialButtons extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SocialButton(
-          color: Colors.blueAccent,
-          onPressed: () {},
+          color: Colors.greenAccent,
+          onPressed: () => signInWithGoogle(context),
           iconData: GoogleIcons.icons8_logo_de_google,
         ),
       ],

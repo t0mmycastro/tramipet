@@ -38,7 +38,18 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   }
 
   @override
-  Future<void> signOut() {
+  Future<void> signOut() async {
+    final data = _user?.providerData ?? [];
+    String providerId = 'firebase';
+    for (final provider in data) {
+      if (provider.providerId != 'firebase') {
+        providerId = provider.providerId;
+        break;
+      }
+    }
+    if (providerId == 'google.com') {
+      _googleSignIn.signOut();
+    }
     return _auth.signOut();
   }
 
@@ -49,9 +60,12 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
       final userCredential = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
       final user = userCredential.user!;
-      return SignInResponse(null, user);
+      return SignInResponse(
+          user: user,
+          providerId: userCredential.credential?.providerId,
+          error: null);
     } on FirebaseAuthException catch (e) {
-      return SignInResponse(getSignInError(e), null);
+      return getSignInError(e);
     }
   }
 
@@ -60,8 +74,11 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
     try {
       final account = await _googleSignIn.signIn();
       if (account == null) {
-        // Ocurrio un error inesperado
-        return SignInResponse(SignInError.unknown, null);
+        return SignInResponse(
+          error: SignInError.cancelled,
+          user: null,
+          providerId: null,
+        );
       }
 
       final googleAuth = await account.authentication;
@@ -72,10 +89,13 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
       );
 
       final userCredential = await _auth.signInWithCredential(oAuthCredential);
-      return SignInResponse(null, userCredential.user);
+      return SignInResponse(
+          error: null,
+          user: userCredential.user,
+          providerId: userCredential.credential?.providerId);
     } on FirebaseAuthException catch (e) {
       e.credential?.providerId;
-      return SignInResponse(getSignInError(e), null);
+      return getSignInError(e);
     }
   }
 }

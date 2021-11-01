@@ -21,7 +21,7 @@ class LoginController extends SimpleNotifier {
     _password = text;
   }
 
-  Future<SignInResponse> submit() async {
+  Future<SignInResponse> signInWithEmailAndPassword() async {
     final response = await _authenticationRepository.signInWithEmailAndPassword(
         _email, _password);
 
@@ -29,6 +29,14 @@ class LoginController extends SimpleNotifier {
       _sessionController.setUser(response.user!);
     }
 
+    return response;
+  }
+
+  Future<SignInResponse> signInWithGoogle() async {
+    final response = await _authenticationRepository.signInWithGoogle();
+    if (response.error == null) {
+      _sessionController.setUser(response.user!);
+    }
     return response;
   }
 }

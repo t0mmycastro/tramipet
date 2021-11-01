@@ -36,7 +36,7 @@ class LoginPage extends StatelessWidget {
                   key: controller.formKey,
                   child: SingleChildScrollView(
                     child: Column(children: [
-                      const SizedBox(height: 200),
+                      const SizedBox(height: 110),
                       SvgPicture.asset(
                         'assets/images/bienvenido_login.svg',
                         width: 300,

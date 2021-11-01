@@ -5,6 +5,7 @@ import 'package:flutter_meedu/state.dart';
 import 'package:tramipet/app/domain/repositories/authentication_repository.dart';
 import 'package:tramipet/app/ui/global_controllers/session_controller.dart';
 import 'package:tramipet/app/ui/global_controllers/theme_controller.dart';
+import 'package:tramipet/app/ui/global_widgets/dialogs/progress_dialog.dart';
 import 'package:tramipet/app/ui/pages/home/tabs/profile/widgets/label_button.dart';
 import 'package:tramipet/app/ui/routes/routes.dart';
 import 'package:flutter_meedu/router.dart' as router;
@@ -69,6 +70,7 @@ class ProfileTab extends ConsumerWidget {
           label: "Salir",
           value: "",
           onPressed: () async {
+            ProgressDialog.show(context);
             await sessionProvider.read.signOut();
             router.pushNamedAndRemoveUntil(Routes.LOGIN);
           },

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_meedu/state.dart';
 import 'package:tramipet/app/ui/global_controllers/session_controller.dart';
 import 'package:flutter_meedu/router.dart' as router;
-import 'package:tramipet/app/ui/routes/routes.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class HomeTab extends StatefulWidget {
@@ -219,7 +218,7 @@ class LabelButton extends StatelessWidget {
         contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
         leading: Text(
           label,
-          style: const TextStyle(fontWeight: FontWeight.w500),
+          style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
         ),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,

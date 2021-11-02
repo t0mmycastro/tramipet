@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:tramipet/app/domain/repositories/authentication_repository.dart';
@@ -56,10 +57,27 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   @override
   Future<SignInResponse> signInWithEmailAndPassword(
       String email, password) async {
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
     try {
       final userCredential = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
       final user = userCredential.user!;
+      var userData = {
+        'nombre y apellido': user.displayName,
+        'provider': 'normal',
+        'uid': user.uid,
+        'email': user.email,
+      };
+
+      users.doc(user.uid).get().then((doc) {
+        if (doc.exists) {
+          doc.reference.update(userData);
+        } else {
+          // Nuevo usuario :D
+          users.doc(user.uid).set(userData);
+        }
+      });
+
       return SignInResponse(
           user: user,
           providerId: userCredential.credential?.providerId,
@@ -71,6 +89,7 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
 
   @override
   Future<SignInResponse> signInWithGoogle() async {
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
     try {
       final account = await _googleSignIn.signIn();
       if (account == null) {
@@ -89,6 +108,25 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
       );
 
       final userCredential = await _auth.signInWithCredential(oAuthCredential);
+
+      final User user = userCredential.user!;
+
+      var userData = {
+        'Nombre': account.displayName,
+        'provider': 'google',
+        'photoUrl': account.photoUrl,
+        'email': account.email,
+      };
+
+      users.doc(user.uid).get().then((doc) {
+        if (doc.exists) {
+          doc.reference.update(userData);
+        } else {
+          // Nuevo usuario :D
+          users.doc(user.uid).set(userData);
+        }
+      });
+
       return SignInResponse(
           error: null,
           user: userCredential.user,

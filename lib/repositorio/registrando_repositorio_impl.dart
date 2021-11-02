@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tramipet/app/domain/responses/sign_up_response.dart';
-import 'package:tramipet/app/firebase/firebase_user.dart';
 import 'package:tramipet/repositorio/registrando_repositorio.dart';
 
 class SignUpRepositoryImpl implements SignUpRepository {
@@ -17,7 +16,6 @@ class SignUpRepositoryImpl implements SignUpRepository {
       await userCredential.user!.updateDisplayName(
         "${data.nombre} ${data.apellido}",
       );
-      userSetup(userCredential.user!.toString());
       return SignUpResponse(null, userCredential.user!);
     } on FirebaseAuthException catch (e) {
       return SignUpResponse(parseStringToSignUpError(e.code), null);

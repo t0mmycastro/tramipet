@@ -31,8 +31,8 @@ class ProfileTab extends ConsumerWidget {
             letra,
             style: const TextStyle(fontSize: 65),
           ),
-          backgroundImage:
-              user.photoURL != null ? NetworkImage(user.photoURL!) : null,
+          //  backgroundImage:
+          //    user.photoURL != null ? NetworkImage(user.photoURL!) : null,      - Configuro cuando sepa manejar mejor la API
         ),
         const SizedBox(height: 10),
         Center(

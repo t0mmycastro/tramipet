@@ -78,6 +78,7 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
         }
       });
 
+   
       return SignInResponse(
           user: user,
           providerId: userCredential.credential?.providerId,

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_meedu/state.dart';
-import 'package:tramipet/app/ui/global_controllers/session_controller.dart';
 import 'package:flutter_meedu/router.dart' as router;
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:tramipet/app/ui/routes/routes.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({Key? key}) : super(key: key);
@@ -32,10 +31,8 @@ class _HomeTabState extends State<HomeTab> {
     }
   }
 
-  cancelar() async {
-    try {} catch (e) {
-      print(e);
-    }
+  salir() async {
+    try {} catch (e) {}
   }
 
   final _formCertKey = GlobalKey<FormState>();
@@ -118,13 +115,14 @@ class _HomeTabState extends State<HomeTab> {
                                 const SizedBox(height: 10),
                                 TextButton(
                                   onPressed: () {
-                                    cancelar();
+                                    salir();
                                     nombreSolicitudesForm.clear();
                                     apellidoSolicitudesForm.clear();
                                     cursoSolicitudesForm.clear();
                                     materiaSolicitudesForm.clear();
+                                    router.pushReplacementNamed(Routes.HOME);
                                   },
-                                  child: const Text('Cancelar'),
+                                  child: const Text('Salir'),
                                 ),
                                 TextButton(
                                   onPressed: () {

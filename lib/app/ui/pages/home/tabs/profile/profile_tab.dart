@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_meedu/flutter_meedu.dart';
 import 'package:flutter_meedu/state.dart';
-import 'package:tramipet/app/domain/repositories/authentication_repository.dart';
 import 'package:tramipet/app/ui/global_controllers/session_controller.dart';
 import 'package:tramipet/app/ui/global_controllers/theme_controller.dart';
 import 'package:tramipet/app/ui/global_widgets/dialogs/progress_dialog.dart';

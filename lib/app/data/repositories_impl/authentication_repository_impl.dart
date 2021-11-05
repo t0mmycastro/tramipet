@@ -55,40 +55,6 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
   }
 
   @override
-  Future<SignInResponse> signInWithEmailAndPassword(
-      String email, password) async {
-    CollectionReference users = FirebaseFirestore.instance.collection('users');
-    try {
-      final userCredential = await _auth.signInWithEmailAndPassword(
-          email: email, password: password);
-      final user = userCredential.user!;
-      var userData = {
-        'nombre y apellido': user.displayName,
-        'provider': 'normal',
-        'uid': user.uid,
-        'email': user.email,
-      };
-
-      users.doc(user.uid).get().then((doc) {
-        if (doc.exists) {
-          doc.reference.update(userData);
-        } else {
-          // Nuevo usuario :D
-          users.doc(user.uid).set(userData);
-        }
-      });
-
-   
-      return SignInResponse(
-          user: user,
-          providerId: userCredential.credential?.providerId,
-          error: null);
-    } on FirebaseAuthException catch (e) {
-      return getSignInError(e);
-    }
-  }
-
-  @override
   Future<SignInResponse> signInWithGoogle() async {
     CollectionReference users = FirebaseFirestore.instance.collection('users');
     try {

@@ -2,14 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_meedu/flutter_meedu.dart';
 import 'package:flutter_meedu/state.dart';
-import 'package:tramipet/app/domain/repositories/authentication_repository.dart';
-import 'package:flutter_meedu/router.dart' as router;
-import 'package:tramipet/app/ui/global_controllers/session_controller.dart';
 import 'package:tramipet/app/ui/pages/home/tabs/home/home_tab.dart';
 import 'package:tramipet/app/ui/pages/home/tabs/profile/profile_tab.dart';
 import 'package:tramipet/app/ui/pages/home/widgets/home_tab_bar.dart';
-import 'package:tramipet/app/ui/routes/routes.dart';
-import 'package:tramipet/src/widgets/Menu.dart';
 
 import 'controller/home_controller.dart';
 
@@ -18,6 +13,8 @@ final homeProvider = SimpleProvider(
 );
 
 class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ProviderListener<HomeController>(

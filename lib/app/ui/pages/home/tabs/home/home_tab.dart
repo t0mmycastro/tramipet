@@ -14,9 +14,8 @@ class HomeTab extends StatefulWidget {
 class _HomeTabState extends State<HomeTab> {
   TextEditingController nombreSolicitudesForm = TextEditingController();
   TextEditingController apellidoSolicitudesForm = TextEditingController();
-  TextEditingController dniSolicitudesForm = TextEditingController();
+  TextEditingController cursoSolicitudesForm = TextEditingController();
   TextEditingController materiaSolicitudesForm = TextEditingController();
-  TextEditingController telefonoSolicitudesForm = TextEditingController();
 
   final firebase = FirebaseFirestore.instance;
 
@@ -25,9 +24,8 @@ class _HomeTabState extends State<HomeTab> {
       await firebase.collection("SolicitudesMaterias").doc().set({
         "nombre": nombreSolicitudesForm.text,
         "apellido": apellidoSolicitudesForm.text,
-        "dni": dniSolicitudesForm.text,
+        "curso": cursoSolicitudesForm.text,
         "materia": materiaSolicitudesForm.text,
-        "telefono": telefonoSolicitudesForm.text,
       });
     } catch (e) {
       print(e);
@@ -46,8 +44,17 @@ class _HomeTabState extends State<HomeTab> {
   Widget build(BuildContext context) {
     return SizedBox(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const SizedBox(height: 20),
+          const Text(
+            "¡Bienvenido a TramiPET!",
+            style: TextStyle(fontSize: 20),
+          ),
+          Image.asset('assets/tramipet.png', height: 330, width: 330),
+          const Text(
+              'Cualquier duda comunicarse con los directivos del colegio',
+              style: TextStyle(fontSize: 13)),
+          const SizedBox(height: 70),
           LabelButton(
             label: 'Solicitud para rendir materias',
             value: '',
@@ -86,10 +93,10 @@ class _HomeTabState extends State<HomeTab> {
                                 ),
                                 const SizedBox(height: 10),
                                 TextFormField(
-                                  controller: dniSolicitudesForm,
+                                  controller: cursoSolicitudesForm,
                                   onChanged: (value) {},
                                   decoration: const InputDecoration(
-                                    hintText: "Ingrese su DNI ",
+                                    hintText: "Ingrese su curso",
                                     icon: Icon(
                                       Icons.border_color,
                                       color: Colors.blue,
@@ -109,26 +116,13 @@ class _HomeTabState extends State<HomeTab> {
                                   ),
                                 ),
                                 const SizedBox(height: 10),
-                                TextFormField(
-                                  controller: telefonoSolicitudesForm,
-                                  onChanged: (value) {},
-                                  decoration: const InputDecoration(
-                                    hintText: "Teléfono",
-                                    icon: Icon(
-                                      Icons.aod,
-                                      color: Colors.blue,
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(height: 10),
                                 TextButton(
                                   onPressed: () {
                                     cancelar();
                                     nombreSolicitudesForm.clear();
                                     apellidoSolicitudesForm.clear();
-                                    dniSolicitudesForm.clear();
+                                    cursoSolicitudesForm.clear();
                                     materiaSolicitudesForm.clear();
-                                    telefonoSolicitudesForm.clear();
                                   },
                                   child: const Text('Cancelar'),
                                 ),
@@ -137,63 +131,13 @@ class _HomeTabState extends State<HomeTab> {
                                     enviarRendirMaterias();
                                     nombreSolicitudesForm.clear();
                                     apellidoSolicitudesForm.clear();
-                                    dniSolicitudesForm.clear();
+                                    cursoSolicitudesForm.clear();
                                     materiaSolicitudesForm.clear();
-                                    telefonoSolicitudesForm.clear();
                                   },
                                   child: const Text('Enviar'),
                                 ),
                               ],
                             ),
-                          ),
-                        ),
-                      ));
-            },
-          ),
-          LabelButton(
-            label: 'Solicitar certificados',
-            value: '',
-            onPressed: () {
-              showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                        title: const Text('Solicitud de certificados'),
-                        content: Form(
-                          child: Column(
-                            children: [
-                              TextFormField(
-                                onChanged: (value) {},
-                                decoration: const InputDecoration(
-                                    hintText: "Ingrese su nombre "),
-                              ),
-                              const SizedBox(height: 10),
-                              TextFormField(
-                                onChanged: (value) {},
-                                decoration: const InputDecoration(
-                                    hintText: "Ingrese su DNI "),
-                              ),
-                              const SizedBox(height: 10),
-                              TextFormField(
-                                onChanged: (value) {},
-                                decoration: const InputDecoration(
-                                    hintText: "Materia a rendir"),
-                              ),
-                              const SizedBox(height: 10),
-                              TextFormField(
-                                onChanged: (value) {},
-                                decoration:
-                                    const InputDecoration(hintText: "Teléfono"),
-                              ),
-                              const SizedBox(height: 10),
-                              TextButton(
-                                onPressed: () {},
-                                child: const Text('Cancelar'),
-                              ),
-                              TextButton(
-                                onPressed: () {},
-                                child: const Text('Enviar'),
-                              ),
-                            ],
                           ),
                         ),
                       ));

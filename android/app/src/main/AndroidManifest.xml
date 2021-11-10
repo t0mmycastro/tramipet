@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.componentes">
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
    <application
         android:label="TramiPET"
         android:icon="@mipmap/launcher_icon">

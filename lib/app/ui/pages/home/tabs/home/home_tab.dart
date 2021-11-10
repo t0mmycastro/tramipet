@@ -14,6 +14,7 @@ class _HomeTabState extends State<HomeTab> {
   TextEditingController nombreSolicitudesForm = TextEditingController();
   TextEditingController apellidoSolicitudesForm = TextEditingController();
   TextEditingController cursoSolicitudesForm = TextEditingController();
+  TextEditingController dniSolicitudesForm = TextEditingController();
   TextEditingController materiaSolicitudesForm = TextEditingController();
 
   final firebase = FirebaseFirestore.instance;
@@ -24,6 +25,7 @@ class _HomeTabState extends State<HomeTab> {
         "nombre": nombreSolicitudesForm.text,
         "apellido": apellidoSolicitudesForm.text,
         "curso": cursoSolicitudesForm.text,
+        "dni": dniSolicitudesForm.text,
         "materia": materiaSolicitudesForm.text,
       });
     } catch (e) {
@@ -36,7 +38,13 @@ class _HomeTabState extends State<HomeTab> {
   }
 
   final _formCertKey = GlobalKey<FormState>();
-
+  List<String> accountType = <String>[
+    'Savings',
+    'Deposit',
+    'Checking',
+    'Brokerage'
+  ];
+  var selectedCurrency, selectedType;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -100,6 +108,17 @@ class _HomeTabState extends State<HomeTab> {
                                     ),
                                   ),
                                 ),
+                                TextFormField(
+                                  controller: dniSolicitudesForm,
+                                  onChanged: (value) {},
+                                  decoration: const InputDecoration(
+                                    hintText: "DNI",
+                                    icon: Icon(
+                                      Icons.password,
+                                      color: Colors.blue,
+                                    ),
+                                  ),
+                                ),
                                 const SizedBox(height: 10),
                                 TextFormField(
                                   controller: materiaSolicitudesForm,
@@ -119,6 +138,7 @@ class _HomeTabState extends State<HomeTab> {
                                     nombreSolicitudesForm.clear();
                                     apellidoSolicitudesForm.clear();
                                     cursoSolicitudesForm.clear();
+                                    dniSolicitudesForm.clear();
                                     materiaSolicitudesForm.clear();
                                     router.pushReplacementNamed(Routes.HOME);
                                   },
@@ -130,7 +150,9 @@ class _HomeTabState extends State<HomeTab> {
                                     nombreSolicitudesForm.clear();
                                     apellidoSolicitudesForm.clear();
                                     cursoSolicitudesForm.clear();
+                                    dniSolicitudesForm.clear();
                                     materiaSolicitudesForm.clear();
+                                    router.pushReplacementNamed(Routes.HOME);
                                   },
                                   child: const Text('Enviar'),
                                 ),

@@ -2,7 +2,7 @@
     package="com.example.componentes">
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
    <application
-        android:label="TramiPET"
+        android:label="TramiEPET"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"

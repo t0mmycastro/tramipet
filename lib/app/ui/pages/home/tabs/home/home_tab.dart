@@ -38,13 +38,7 @@ class _HomeTabState extends State<HomeTab> {
   }
 
   final _formCertKey = GlobalKey<FormState>();
-  List<String> accountType = <String>[
-    'Savings',
-    'Deposit',
-    'Checking',
-    'Brokerage'
-  ];
-  var selectedCurrency, selectedType;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -52,7 +46,7 @@ class _HomeTabState extends State<HomeTab> {
         children: [
           const SizedBox(height: 20),
           const Text(
-            "¡Bienvenido a TramiPET!",
+            "¡Bienvenido a TramiEPET!",
             style: TextStyle(fontSize: 20),
           ),
           Image.asset('assets/tramipet.png', height: 330, width: 330),
@@ -108,6 +102,7 @@ class _HomeTabState extends State<HomeTab> {
                                     ),
                                   ),
                                 ),
+                                const SizedBox(height: 10),
                                 TextFormField(
                                   controller: dniSolicitudesForm,
                                   onChanged: (value) {},

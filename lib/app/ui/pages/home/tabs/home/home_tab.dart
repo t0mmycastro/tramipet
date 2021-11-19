@@ -148,6 +148,11 @@ class _HomeTabState extends State<HomeTab> {
                                     dniSolicitudesForm.clear();
                                     materiaSolicitudesForm.clear();
                                     router.pushReplacementNamed(Routes.HOME);
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(const SnackBar(
+                                      content:
+                                          Text("Se ha enviado tu formulario!"),
+                                    ));
                                   },
                                   child: const Text('Enviar'),
                                 ),

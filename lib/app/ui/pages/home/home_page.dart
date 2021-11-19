@@ -23,7 +23,10 @@ class HomePage extends StatelessWidget {
         return Scaffold(
           bottomNavigationBar: HomeTabBar(),
           appBar: AppBar(
-            title: const Center(child: Text('TramiEPET')),
+            title: const Center(
+              child: Text('TramiEPET'),
+            ),
+            automaticallyImplyLeading: false,
           ),
           body: SafeArea(
             child: TabBarView(
